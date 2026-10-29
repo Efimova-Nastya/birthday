@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Приглашение на 56-летие · Николай Николаевич</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #d4c9b8;
+            color: #2c241e;
+            line-height: 1.8;
+            display: flex;
+            justify-content: center;
+            padding: 30px 16px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.92);
+            backdrop-filter: blur(4px);
+            border-radius: 44px;
+            padding: 0;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Фоновая картинка */
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&crop=center') center/cover no-repeat;
+            z-index: 0;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 56px 50px 46px;
+            background: rgba(255, 248, 240, 0.88);
+            backdrop-filter: blur(2px);
+        }
+
+        .gold { color: #b8863a; }
+        .gold-light { color: #c9973e; }
+        .muted { color: rgba(44, 36, 30, 0.5); }
+        .text-center { text-align: center; }
+        .relative { position: relative; z-index: 1; }
+
+        .divider {
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 134, 58, 0.3), transparent);
+            margin: 30px auto;
+        }
+
+        .divider-thick {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(184, 134, 58, 0.15), transparent);
+            margin: 34px auto;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(184, 134, 58, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .header .ornament {
+            font-size: 1.5rem;
+            letter-spacing: 24px;
+            color: rgba(184, 134, 58, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .header .pre-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: rgba(184, 134, 58, 0.6);
+            letter-spacing: 4px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 4.8rem;
+            color: #2c241e;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin: 4px 0 0;
+        }
+
+        .header h1 span { color: #b8863a; }
+
+        .header .sub-title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(44, 36, 30, 0.5);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .header .age-badge {
+            display: inline-block;
+            margin-top: 14px;
+            background: rgba(184, 134, 58, 0.06);
+            border: 1px solid rgba(184, 134, 58, 0.1);
+            border-radius: 60px;
+            padding: 6px 34px;
+            font-size: 0.85rem;
+            color: rgba(184, 134, 58, 0.6);
+            letter-spacing: 4px;
+        }
+
+        /* ===== ПРИВЕТСТВИЕ ===== */
+        .greeting-block {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .greeting-block .salute {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.7rem;
+            color: rgba(44, 36, 30, 0.7);
+        }
+
+        .greeting-block p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(44, 36, 30, 0.65);
+            line-height: 2.1;
+            max-width: 580px;
+            margin: 12px auto 0;
+        }
+
+        .greeting-block p strong {
+            color: #2c241e;
+            font-weight: 500;
+        }
+
+        .greeting-block .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-top: 12px;
+            font-size: 1.1rem;
+            color: rgba(184, 134, 58, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* ===== БЛОК С ИМЕНЕМ ===== */
+        .name-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(184, 134, 58, 0.04);
+            border-radius: 30px;
+            padding: 32px 24px;
+            border: 1px solid rgba(184, 134, 58, 0.06);
+            margin: 18px 0 30px;
+            text-align: center;
+        }
+
+        .name-block .full-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.6rem;
+            color: #2c241e;
+            letter-spacing: 3px;
+        }
+
+        .name-block .full-name span { color: #b8863a; }
+
+        .name-block .age-line {
+            font-size: 1.1rem;
+            color: rgba(44, 36, 30, 0.4);
+            letter-spacing: 5px;
+            margin-top: 6px;
+        }
+
+        .name-block .age-line strong {
+            color: #b8863a;
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+
+        .name-block .age-line .note {
+            font-size: 0.8rem;
+            color: rgba(44, 36, 30, 0.25);
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        /* ===== ДЕТАЛИ ===== */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 18px 8px;
+            text-align: center;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            transition: border-color 0.3s ease;
+        }
+
+        .detail-card:hover {
+            border-color: rgba(184, 134, 58, 0.15);
+        }
+
+        .detail-card .icon { font-size: 2rem; margin-bottom: 4px; }
+        .detail-card .label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: rgba(44, 36, 30, 0.3);
+            font-weight: 500;
+        }
+        .detail-card .value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2c241e;
+            margin-top: 2px;
+        }
+        .detail-card .value.gold { color: #b8863a; }
+
+        /* ===== ПРОГРАММА ===== */
+        .program-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            padding: 30px 30px 22px;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            margin-bottom: 30px;
+        }
+
+        .program-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #2c241e;
+            text-align: center;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        .program-block h3 span { color: #b8863a; }
+
+        .program-item {
+            display: flex;
+            align-items: baseline;
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(44, 36, 30, 0.04);
+        }
+
+        .program-item:last-child { border-bottom: none; }
+
+        .program-item .time {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b8863a;
+            width: 85px;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .program-item .desc {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(44, 36, 30, 0.65);
+        }
+
+        .program-item .desc strong { color: #2c241e; font-weight: 400; }
+
+        /* ===== МЕНЮ ===== */
+        .menu-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            padding: 30px 30px 22px;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            margin-bottom: 30px;
+        }
+
+        .menu-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #2c241e;
+            text-align: center;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .menu-block h3 span { color: #b8863a; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            border-bottom: 1px dotted rgba(44, 36, 30, 0.04);
+            font-size: 0.92rem;
+        }
+
+        .menu-item .dish { color: rgba(44, 36, 30, 0.65); font-weight: 300; }
+        .menu-item .dish strong { color: #2c241e; font-weight: 400; }
+        .menu-item .note { color: rgba(184, 134, 58, 0.3); font-size: 0.75rem; }
+
+        /* ===== ЛОКАЦИЯ ===== */
+        .location-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            padding: 26px 30px 22px;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .location-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #2c241e;
+            margin-bottom: 4px;
+        }
+
+        .location-block h3 span { color: #b8863a; }
+
+        .location-block .address {
+            font-size: 1.15rem;
+            color: rgba(44, 36, 30, 0.55);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .location-block .address strong {
+            color: #2c241e;
+            font-weight: 500;
+        }
+
+        .location-block .address-sub {
+            font-size: 0.85rem;
+            color: rgba(44, 36, 30, 0.25);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* ===== ФОТОЗОНА ===== */
+        .atmosphere-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            padding: 26px 30px 22px;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .atmosphere-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #2c241e;
+            margin-bottom: 4px;
+        }
+
+        .atmosphere-block h3 span { color: #b8863a; }
+
+        .atmosphere-block p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(44, 36, 30, 0.55);
+            max-width: 520px;
+            margin: 6px auto 0;
+            line-height: 1.9;
+        }
+
+        .atmosphere-icons {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 16px;
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+        }
+
+        .atmosphere-icons span {
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .atmosphere-icons span:hover { opacity: 0.8; }
+
+        /* ===== ПОДАРКИ ===== */
+        .gift-block {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            padding: 26px 30px 22px;
+            border: 1px solid rgba(44, 36, 30, 0.04);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .gift-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #2c241e;
+            margin-bottom: 4px;
+        }
+
+        .gift-block h3 span { color: #b8863a; }
+
+        .gift-block p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(44, 36, 30, 0.55);
+            max-width: 480px;
+            margin: 4px auto 0;
+            line-height: 1.8;
+        }
+
+        .gift-block .gift-hint {
+            font-size: 0.8rem;
+            color: rgba(44, 36, 30, 0.2);
+            margin-top: 6px;
+            letter-spacing: 2px;
+        }
+
+        /* ===== ЦИТАТА ===== */
+        .wishes-block {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 18px 0 10px;
+            border-top: 1px solid rgba(184, 134, 58, 0.06);
+            margin-top: 6px;
+        }
+
+        .wishes-block .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: rgba(44, 36, 30, 0.2);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        .wishes-block .quote span { color: rgba(184, 134, 58, 0.2); }
+
+        .wishes-block .family-sign {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: rgba(44, 36, 30, 0.15);
+            letter-spacing: 5px;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(44, 36, 30, 0.04);
+        }
+
+        .footer .copy {
+            font-size: 0.6rem;
+            color: rgba(44, 36, 30, 0.1);
+            letter-spacing: 4px;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 640px) {
+            .content {
+                padding: 28px 18px 24px;
+                border-radius: 28px;
+            }
+
+            .header h1 { font-size: 3.2rem; }
+            .header .sub-title { font-size: 0.95rem; letter-spacing: 4px; }
+
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .name-block .full-name { font-size: 1.9rem; }
+
+            .program-block { padding: 20px 16px 14px; }
+            .program-item { flex-direction: column; padding: 10px 0; }
+            .program-item .time { width: 100%; margin-bottom: 2px; }
+
+            .menu-grid { grid-template-columns: 1fr; }
+
+            .menu-block { padding: 20px 16px 16px; }
+            .location-block { padding: 20px 16px 16px; }
+            .atmosphere-block { padding: 20px 16px 16px; }
+            .gift-block { padding: 20px 16px 16px; }
+
+            .greeting-block p { font-size: 0.95rem; }
+            .atmosphere-icons { gap: 14px; font-size: 1.8rem; }
+            .wishes-block .quote { font-size: 1.05rem; }
+            .header .pre-title { font-size: 0.95rem; }
+        }
+
+        @media (max-width: 400px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.6rem; }
+            .name-block .full-name { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content">
+
+            <!-- ========== ШАПКА ========== -->
+            <div class="header">
+                <div class="ornament">✦ ✦ ✦</div>
+                <div class="pre-title">С глубоким уважением и теплом приглашаем</div>
+                <h1>5 <span>6</span></h1>
+                <div class="sub-title">-й День Рождения</div>
+                <div class="age-badge">12 июля 2026 · Семейный круг</div>
+            </div>
+
+            <!-- ========== ПРИВЕТСТВИЕ ========== -->
+            <div class="greeting-block relative">
+                <div class="salute">«Семья — это главное в жизни»</div>
+                <p>
+                    Дорогие наши родные, близкие и друзья!<br />
+                    С огромной радостью приглашаем вас разделить с нами этот особенный день —
+                    <strong>56-й День Рождения</strong> нашего любимого <strong>Николая Николаевича</strong>.
+                    <br /><br />
+                    12 июля мы собираемся в нашем родном доме в <strong>Старом Ильдеряково</strong>,
+                    чтобы в тёплом семейном кругу отметить этот светлый праздник.
+                    Будет по-домашнему уютно, душевно и вкусно — как мы любим.
+                </p>
+                <div class="signature">— С любовью, ваша семья</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- ========== ИМЯ + ВОЗРАСТ ========== -->
+            <div class="name-block relative">
+                <div class="full-name">Николай <span>Николаевич</span></div>
+                <div class="age-line">
+                    <strong>56</strong> &nbsp;лет &nbsp;·&nbsp; <span class="note">«Возраст мудрости и душевной силы»</span>
+                </div>
+            </div>
+
+            <!-- ========== ДЕТАЛИ ========== -->
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="label">Дата</div>
+                    <div class="value gold">12 июля 2026</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Сбор гостей</div>
+                    <div class="value">19:00</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Место</div>
+                    <div class="value">Родной дом</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Формат</div>
+                    <div class="value">Семейный уют</div>
+                </div>
+            </div>
+
+            <div class="divider-thick"></div>
+
+            <!-- ========== ПРОГРАММА ========== -->
+            <div class="program-block relative">
+                <h3>Программа <span>праздника</span></h3>
+
+                <div class="program-item">
+                    <span class="time">19:00</span>
+                    <span class="desc"><strong>Встреча гостей</strong> · Тёплый приём</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">19:30</span>
+                    <span class="desc"><strong>Семейный ужин</strong> · Блюда домашней кухни</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">20:00</span>
+                    <span class="desc"><strong>Поздравления</strong> · Тёплые слова и душевные пожелания</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">20:30</span>
+                    <span class="desc"><strong>Чаепитие</strong> · Домашний торт, варенье, пироги</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">21:00</span>
+                    <span class="desc"><strong>Фотографии</strong> · Семейные кадры на память</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">21:30</span>
+                    <span class="desc"><strong>Завершение</strong> · Тёплые проводы</span>
+                </div>
+            </div>
+
+            <!-- ========== МЕНЮ ========== -->
+            <div class="menu-block relative">
+                <h3>Домашнее <span>меню</span></h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="dish"><strong>Различные салаты</strong> · </span>
+                        <span class="note">♡</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="dish"><strong>Картофель</strong> · варёный, печёный</span>
+                        <span class="note">♡</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="dish"><strong>Курица</strong> · запечённая в духовке</span>
+                        <span class="note">♡</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="dish"><strong>Торт </strong> · </span>
+                        <span class="note">♡</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="dish"><strong>Компот</strong> · ягодный</span>
+                        <span class="note">♡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== ЛОКАЦИЯ ========== -->
+            <div class="location-block relative">
+                <h3>🏡 <span>Наш дом</span></h3>
+                <div class="address">
+                    <strong>Деревня Старое Ильдеряково</strong>
+                </div>
+                <div class="address-sub">
+                    Уютный семейный дом 
+                </div>
+            </div>
+
+            <!-- ========== ФОТОЗОНА ========== -->
+            <div class="atmosphere-block relative">
+                <h3>📸 Фотозона <span>и настроение</span></h3>
+                <p>
+                    Деревенская природа. Огород. Площадка для детей. Домик. Сделаем отличные семейные
+                    снимки на долгую память!
+                </p>
+                <div class="atmosphere-icons">
+                    <span>🌻</span>
+                    <span>🪑</span>
+                    <span>☕</span>
+                    <span>🎵</span>
+                    <span>📷</span>
+                    <span>🌿</span>
+                    <span>✨</span>
+                </div>
+            </div>
+
+            <!-- ========== ПОДАРКИ ========== -->
+            <div class="gift-block relative">
+                <h3>🎁 <span>О подарках</span></h3>
+                <p>
+                    Самое главное для нас — ваше внимание, тёплые слова и хорошее настроение.
+                    Если вы хотите порадовать Николая Николаевича, мы будем рады любым
+                     сюрпризам.
+                </p>
+                <div class="gift-hint">
+                    ✦ Главное — вы рядом ✦
+                </div>
+            </div>
+
+            <!-- ========== ЦИТАТА ========== -->
+            <div class="wishes-block relative">
+                <div class="quote">
+                    «Счастье — это когда есть с кем<br />
+                    разделить <span>тёплый летний день</span>»
+                </div>
+                <div class="family-sign">
+                    ✦ Семья Николая Николаевича ✦
+                </div>
+            </div>
+
+            <!-- ========== ФУТЕР ========== -->
+            <div class="footer">
+                <div class="copy">
+                    День Рождения · 12 июля 2026 · Старое Ильдеряково
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
