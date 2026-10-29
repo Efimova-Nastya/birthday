@@ -1,739 +1,253 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Приглашение на 56-летие · Николай Николаевич</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #d4c9b8;
-            color: #2c241e;
-            line-height: 1.8;
-            display: flex;
-            justify-content: center;
-            padding: 30px 16px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 760px;
-            width: 100%;
-            background: rgba(255, 248, 240, 0.92);
-            backdrop-filter: blur(4px);
-            border-radius: 44px;
-            padding: 0;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Фоновая картинка */
-        .container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop&crop=center') center/cover no-repeat;
-            z-index: 0;
-            opacity: 0.25;
-            pointer-events: none;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            padding: 56px 50px 46px;
-            background: rgba(255, 248, 240, 0.88);
-            backdrop-filter: blur(2px);
-        }
-
-        .gold { color: #b8863a; }
-        .gold-light { color: #c9973e; }
-        .muted { color: rgba(44, 36, 30, 0.5); }
-        .text-center { text-align: center; }
-        .relative { position: relative; z-index: 1; }
-
-        .divider {
-            width: 70px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(184, 134, 58, 0.3), transparent);
-            margin: 30px auto;
-        }
-
-        .divider-thick {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(184, 134, 58, 0.15), transparent);
-            margin: 34px auto;
-        }
-
-        /* ===== ШАПКА ===== */
-        .header {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(184, 134, 58, 0.08);
-            margin-bottom: 30px;
-        }
-
-        .header .ornament {
-            font-size: 1.5rem;
-            letter-spacing: 24px;
-            color: rgba(184, 134, 58, 0.2);
-            margin-bottom: 10px;
-        }
-
-        .header .pre-title {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: rgba(184, 134, 58, 0.6);
-            letter-spacing: 4px;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 4.8rem;
-            color: #2c241e;
-            line-height: 1.05;
-            letter-spacing: -1px;
-            margin: 4px 0 0;
-        }
-
-        .header h1 span { color: #b8863a; }
-
-        .header .sub-title {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: rgba(44, 36, 30, 0.5);
-            letter-spacing: 8px;
-            text-transform: uppercase;
-        }
-
-        .header .age-badge {
-            display: inline-block;
-            margin-top: 14px;
-            background: rgba(184, 134, 58, 0.06);
-            border: 1px solid rgba(184, 134, 58, 0.1);
-            border-radius: 60px;
-            padding: 6px 34px;
-            font-size: 0.85rem;
-            color: rgba(184, 134, 58, 0.6);
-            letter-spacing: 4px;
-        }
-
-        /* ===== ПРИВЕТСТВИЕ ===== */
-        .greeting-block {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            margin-bottom: 22px;
-        }
-
-        .greeting-block .salute {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.7rem;
-            color: rgba(44, 36, 30, 0.7);
-        }
-
-        .greeting-block p {
-            font-size: 1.05rem;
-            font-weight: 300;
-            color: rgba(44, 36, 30, 0.65);
-            line-height: 2.1;
-            max-width: 580px;
-            margin: 12px auto 0;
-        }
-
-        .greeting-block p strong {
-            color: #2c241e;
-            font-weight: 500;
-        }
-
-        .greeting-block .signature {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            margin-top: 12px;
-            font-size: 1.1rem;
-            color: rgba(184, 134, 58, 0.4);
-            letter-spacing: 2px;
-        }
-
-        /* ===== БЛОК С ИМЕНЕМ ===== */
-        .name-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(184, 134, 58, 0.04);
-            border-radius: 30px;
-            padding: 32px 24px;
-            border: 1px solid rgba(184, 134, 58, 0.06);
-            margin: 18px 0 30px;
-            text-align: center;
-        }
-
-        .name-block .full-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 2.6rem;
-            color: #2c241e;
-            letter-spacing: 3px;
-        }
-
-        .name-block .full-name span { color: #b8863a; }
-
-        .name-block .age-line {
-            font-size: 1.1rem;
-            color: rgba(44, 36, 30, 0.4);
-            letter-spacing: 5px;
-            margin-top: 6px;
-        }
-
-        .name-block .age-line strong {
-            color: #b8863a;
-            font-weight: 600;
-            font-size: 1.6rem;
-        }
-
-        .name-block .age-line .note {
-            font-size: 0.8rem;
-            color: rgba(44, 36, 30, 0.25);
-            letter-spacing: 2px;
-            font-style: italic;
-        }
-
-        /* ===== ДЕТАЛИ ===== */
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .detail-card {
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 20px;
-            padding: 18px 8px;
-            text-align: center;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            transition: border-color 0.3s ease;
-        }
-
-        .detail-card:hover {
-            border-color: rgba(184, 134, 58, 0.15);
-        }
-
-        .detail-card .icon { font-size: 2rem; margin-bottom: 4px; }
-        .detail-card .label {
-            font-size: 0.55rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: rgba(44, 36, 30, 0.3);
-            font-weight: 500;
-        }
-        .detail-card .value {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #2c241e;
-            margin-top: 2px;
-        }
-        .detail-card .value.gold { color: #b8863a; }
-
-        /* ===== ПРОГРАММА ===== */
-        .program-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 26px;
-            padding: 30px 30px 22px;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            margin-bottom: 30px;
-        }
-
-        .program-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.6rem;
-            color: #2c241e;
-            text-align: center;
-            margin-bottom: 22px;
-            letter-spacing: 1px;
-        }
-
-        .program-block h3 span { color: #b8863a; }
-
-        .program-item {
-            display: flex;
-            align-items: baseline;
-            padding: 11px 0;
-            border-bottom: 1px solid rgba(44, 36, 30, 0.04);
-        }
-
-        .program-item:last-child { border-bottom: none; }
-
-        .program-item .time {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #b8863a;
-            width: 85px;
-            flex-shrink: 0;
-            letter-spacing: 0.5px;
-        }
-
-        .program-item .desc {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: rgba(44, 36, 30, 0.65);
-        }
-
-        .program-item .desc strong { color: #2c241e; font-weight: 400; }
-
-        /* ===== МЕНЮ ===== */
-        .menu-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 26px;
-            padding: 30px 30px 22px;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            margin-bottom: 30px;
-        }
-
-        .menu-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.6rem;
-            color: #2c241e;
-            text-align: center;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
-        }
-
-        .menu-block h3 span { color: #b8863a; }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 24px;
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 7px 0;
-            border-bottom: 1px dotted rgba(44, 36, 30, 0.04);
-            font-size: 0.92rem;
-        }
-
-        .menu-item .dish { color: rgba(44, 36, 30, 0.65); font-weight: 300; }
-        .menu-item .dish strong { color: #2c241e; font-weight: 400; }
-        .menu-item .note { color: rgba(184, 134, 58, 0.3); font-size: 0.75rem; }
-
-        /* ===== ЛОКАЦИЯ ===== */
-        .location-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 26px;
-            padding: 26px 30px 22px;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .location-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #2c241e;
-            margin-bottom: 4px;
-        }
-
-        .location-block h3 span { color: #b8863a; }
-
-        .location-block .address {
-            font-size: 1.15rem;
-            color: rgba(44, 36, 30, 0.55);
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .location-block .address strong {
-            color: #2c241e;
-            font-weight: 500;
-        }
-
-        .location-block .address-sub {
-            font-size: 0.85rem;
-            color: rgba(44, 36, 30, 0.25);
-            margin-top: 4px;
-            font-style: italic;
-        }
-
-        /* ===== ФОТОЗОНА ===== */
-        .atmosphere-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 26px;
-            padding: 26px 30px 22px;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .atmosphere-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #2c241e;
-            margin-bottom: 4px;
-        }
-
-        .atmosphere-block h3 span { color: #b8863a; }
-
-        .atmosphere-block p {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: rgba(44, 36, 30, 0.55);
-            max-width: 520px;
-            margin: 6px auto 0;
-            line-height: 1.9;
-        }
-
-        .atmosphere-icons {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-top: 16px;
-            font-size: 2.2rem;
-            letter-spacing: 8px;
-        }
-
-        .atmosphere-icons span {
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
-        }
-
-        .atmosphere-icons span:hover { opacity: 0.8; }
-
-        /* ===== ПОДАРКИ ===== */
-        .gift-block {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 26px;
-            padding: 26px 30px 22px;
-            border: 1px solid rgba(44, 36, 30, 0.04);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .gift-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #2c241e;
-            margin-bottom: 4px;
-        }
-
-        .gift-block h3 span { color: #b8863a; }
-
-        .gift-block p {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: rgba(44, 36, 30, 0.55);
-            max-width: 480px;
-            margin: 4px auto 0;
-            line-height: 1.8;
-        }
-
-        .gift-block .gift-hint {
-            font-size: 0.8rem;
-            color: rgba(44, 36, 30, 0.2);
-            margin-top: 6px;
-            letter-spacing: 2px;
-        }
-
-        /* ===== ЦИТАТА ===== */
-        .wishes-block {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 18px 0 10px;
-            border-top: 1px solid rgba(184, 134, 58, 0.06);
-            margin-top: 6px;
-        }
-
-        .wishes-block .quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: rgba(44, 36, 30, 0.2);
-            line-height: 1.8;
-            letter-spacing: 0.5px;
-        }
-
-        .wishes-block .quote span { color: rgba(184, 134, 58, 0.2); }
-
-        .wishes-block .family-sign {
-            margin-top: 12px;
-            font-size: 0.9rem;
-            color: rgba(44, 36, 30, 0.15);
-            letter-spacing: 5px;
-        }
-
-        /* ===== ФУТЕР ===== */
-        .footer {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 22px;
-            border-top: 1px solid rgba(44, 36, 30, 0.04);
-        }
-
-        .footer .copy {
-            font-size: 0.6rem;
-            color: rgba(44, 36, 30, 0.1);
-            letter-spacing: 4px;
-        }
-
-        /* ===== АДАПТИВ ===== */
-        @media (max-width: 640px) {
-            .content {
-                padding: 28px 18px 24px;
-                border-radius: 28px;
-            }
-
-            .header h1 { font-size: 3.2rem; }
-            .header .sub-title { font-size: 0.95rem; letter-spacing: 4px; }
-
-            .details-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-
-            .name-block .full-name { font-size: 1.9rem; }
-
-            .program-block { padding: 20px 16px 14px; }
-            .program-item { flex-direction: column; padding: 10px 0; }
-            .program-item .time { width: 100%; margin-bottom: 2px; }
-
-            .menu-grid { grid-template-columns: 1fr; }
-
-            .menu-block { padding: 20px 16px 16px; }
-            .location-block { padding: 20px 16px 16px; }
-            .atmosphere-block { padding: 20px 16px 16px; }
-            .gift-block { padding: 20px 16px 16px; }
-
-            .greeting-block p { font-size: 0.95rem; }
-            .atmosphere-icons { gap: 14px; font-size: 1.8rem; }
-            .wishes-block .quote { font-size: 1.05rem; }
-            .header .pre-title { font-size: 0.95rem; }
-        }
-
-        @media (max-width: 400px) {
-            .details-grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 2.6rem; }
-            .name-block .full-name { font-size: 1.5rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>с днём рождения</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #14121a;
+    font-family: Georgia, 'Times New Roman', serif;
+    padding: 40px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  .label {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: -30px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* ============ ОБЩИЕ ============ */
+  .card { position: relative; width: 100%; max-width: 540px; text-align: center; overflow: hidden; }
+  .card p { font-style: italic; }
+
+  /* ============ 2. ВИНТАЖНАЯ ГАЗЕТА ============ */
+  .v2 {
+    background: #f4ecd8;
+    padding: 40px 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #c4b89a;
+    transform: rotate(-0.4deg);
+    animation: unfold 1s ease-out;
+  }
+  @keyframes unfold { from { opacity:0; transform: rotate(-4deg) scale(0.95);} to {opacity:1; transform: rotate(-0.4deg) scale(1);} }
+  .v2::before { content:''; position:absolute; inset:8px; border:1px solid #b8a87f; pointer-events:none; }
+  .v2 .masthead { text-align:center; border-bottom:3px double #3d3225; padding-bottom:12px; margin-bottom:20px; }
+  .v2 .masthead small { display:block; letter-spacing:3px; font-size:0.7rem; color:#7a6b52; text-transform:uppercase; margin-bottom:6px; }
+  .v2 .masthead h1 { font-size:2.6rem; color:#2b2418; letter-spacing:2px; line-height:1.1; }
+  .v2 .masthead .sub { font-style:italic; color:#6b5d47; margin-top:6px; font-size:0.95rem; }
+  .v2 .body-text { font-size:1.05rem; line-height:1.7; color:#3a3226; text-align:justify; }
+  .v2 .body-text p { margin-bottom:14px; font-style:normal; }
+  .v2 .body-text .dropcap::first-letter { font-size:3.2rem; float:left; line-height:0.9; padding-right:8px; color:#8b2e2e; font-weight:bold; }
+  .v2 .stamp { position:absolute; top:-14px; right:24px; width:80px; height:80px; border:3px dashed #8b2e2e; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#8b2e2e; font-size:0.6rem; text-align:center; transform:rotate(12deg); background:#f4ecd8; letter-spacing:1px; font-weight:bold; }
+  .v2 .signature { margin-top:24px; text-align:right; font-style:italic; color:#6b5d47; border-top:1px solid #b8a87f; padding-top:12px; }
+
+  /* ============ 4. АР-НУВО ============ */
+  .v4 {
+    background: linear-gradient(145deg, #f7f1e3, #ece1c8);
+    padding: 60px 45px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(180,150,90,0.3);
+    animation: reveal 1.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  @keyframes reveal { from {opacity:0; transform:scale(0.94) rotate(-1deg);} to {opacity:1; transform:scale(1) rotate(0);} }
+  .v4 .frame-outer { position:absolute; inset:14px; border:2px solid #b8964f; pointer-events:none; }
+  .v4 .frame-inner { position:absolute; inset:22px; border:1px solid #d4af37; pointer-events:none; }
+  .v4 .corner { position:absolute; width:70px; height:70px; pointer-events:none; opacity:0.9; }
+  .v4 .corner svg { width:100%; height:100%; }
+  .v4 .corner.tl { top:8px; left:8px; }
+  .v4 .corner.tr { top:8px; right:8px; transform:scaleX(-1); }
+  .v4 .corner.bl { bottom:8px; left:8px; transform:scaleY(-1); }
+  .v4 .corner.br { bottom:8px; right:8px; transform:scale(-1); }
+  .v4 .content { position:relative; z-index:2; }
+  .v4 .flourish { color:#b8964f; font-size:1.4rem; letter-spacing:8px; margin-bottom:14px; }
+  .v4 .title-small { font-size:0.75rem; letter-spacing:6px; text-transform:uppercase; color:#8a6d3b; margin-bottom:18px; }
+  .v4 h1 { font-size:2.5rem; color:#2f3e2e; line-height:1.15; font-weight:normal; font-style:italic; margin-bottom:8px; }
+  .v4 .divider { display:flex; align-items:center; justify-content:center; gap:12px; margin:22px 0; color:#b8964f; }
+  .v4 .divider::before, .v4 .divider::after { content:''; height:1px; width:70px; background:linear-gradient(90deg, transparent, #b8964f, transparent); }
+  .v4 .divider .diamond { width:10px; height:10px; background:#b8964f; transform:rotate(45deg); }
+  .v4 p { color:#4a4a3a; font-size:1.08rem; line-height:1.8; }
+  .v4 .leaf-ornament { margin-top:26px; color:#7a8b5c; font-size:1.6rem; letter-spacing:12px; }
+  .v4 .signature { margin-top:24px; font-size:0.9rem; letter-spacing:3px; color:#8a6d3b; text-transform:uppercase; }
+
+  /* ============ 6. БАРОККО ============ */
+  .v6 {
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px), linear-gradient(160deg, #5c1228 0%, #3a0d1a 50%, #4a1020 100%);
+    padding: 70px 50px 60px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px #d4af37, 0 0 0 6px #3a0d1a, 0 0 0 7px #8a6d3b;
+    animation: unveil 1.5s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  @keyframes unveil { from {opacity:0; transform:translateY(30px) scale(0.96);} to {opacity:1; transform:translateY(0) scale(1);} }
+  .v6 .inner-frame { position:absolute; inset:20px; border:1px solid #d4af37; pointer-events:none; }
+  .v6 .inner-frame::before { content:''; position:absolute; inset:5px; border:1px solid rgba(212,175,55,0.4); }
+  .v6 .baroque-corner { position:absolute; width:90px; height:90px; pointer-events:none; }
+  .v6 .baroque-corner svg { width:100%; height:100%; }
+  .v6 .baroque-corner.tl { top:14px; left:14px; }
+  .v6 .baroque-corner.tr { top:14px; right:14px; transform:scaleX(-1); }
+  .v6 .baroque-corner.bl { bottom:14px; left:14px; transform:scaleY(-1); }
+  .v6 .baroque-corner.br { bottom:14px; right:14px; transform:scale(-1); }
+  .v6 .content { position:relative; z-index:2; }
+  .v6 .crown { font-size:44px; display:inline-block; margin-bottom:10px; filter:drop-shadow(0 0 14px rgba(212,175,55,0.8)); animation:glow 3s ease-in-out infinite; }
+  @keyframes glow { 0%,100% {filter:drop-shadow(0 0 10px rgba(212,175,55,0.6));} 50% {filter:drop-shadow(0 0 22px rgba(212,175,55,1));} }
+  .v6 .overline { font-size:0.72rem; letter-spacing:7px; text-transform:uppercase; color:#d4af37; margin-bottom:18px; }
+  .v6 h1 { font-size:2.6rem; color:#f7e8b8; font-weight:normal; line-height:1.15; text-shadow:0 2px 10px rgba(0,0,0,0.5); letter-spacing:1px; }
+  .v6 h1 .accent { color:#d4af37; font-style:italic; }
+  .v6 .ornament-line { display:flex; align-items:center; justify-content:center; gap:14px; margin:24px 0; }
+  .v6 .ornament-line .line { height:1px; width:80px; background:linear-gradient(90deg, transparent, #d4af37, transparent); }
+  .v6 .ornament-line .symbol { color:#d4af37; font-size:1.3rem; text-shadow:0 0 10px rgba(212,175,55,0.6); }
+  .v6 p { color:#e8d9b0; font-size:1.1rem; line-height:1.85; }
+  .v6 .wax-seal { position:absolute; bottom:30px; right:30px; width:62px; height:62px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #c0293f, #7a1424 70%, #5a0f1a); box-shadow:0 4px 12px rgba(0,0,0,0.5), inset 0 -2px 6px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; color:#f7e8b8; font-size:1.4rem; transform:rotate(-12deg); z-index:3; pointer-events:none; }
+  .v6 .wax-seal::before { content:''; position:absolute; inset:6px; border:1px dashed rgba(247,232,184,0.5); border-radius:50%; }
+  .v6 .signature { margin-top:26px; font-size:0.85rem; letter-spacing:4px; text-transform:uppercase; color:#d4af37; font-style:italic; }
+
+  /* ============ 7. ГЕРБАРИЙ ============ */
+  .v7 {
+    background: radial-gradient(circle at 15% 25%, rgba(160,140,100,0.18), transparent 35%), radial-gradient(circle at 85% 75%, rgba(160,140,100,0.15), transparent 35%), radial-gradient(circle at 50% 50%, #fbf6e9, #f0e6cf 70%, #e3d5b8);
+    padding: 55px 45px 45px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6), inset 0 0 80px rgba(140,115,70,0.18);
+    animation: reveal 1.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .v7 .frame { position:absolute; inset:16px; border:1px solid #8a7348; pointer-events:none; }
+  .v7 .frame::before { content:''; position:absolute; inset:5px; border:1px solid rgba(138,115,72,0.45); }
+  .v7 .branch { position:absolute; width:110px; height:110px; pointer-events:none; opacity:0.85; }
+  .v7 .branch svg { width:100%; height:100%; }
+  .v7 .branch.tl { top:22px; left:22px; }
+  .v7 .branch.tr { top:22px; right:22px; transform:scaleX(-1); }
+  .v7 .branch.bl { bottom:22px; left:22px; transform:scaleY(-1); }
+  .v7 .branch.br { bottom:22px; right:22px; transform:scale(-1); }
+  .v7 .content { position:relative; z-index:2; }
+  .v7 .latin { font-size:0.78rem; letter-spacing:4px; text-transform:uppercase; color:#8a7348; font-style:italic; margin-bottom:6px; }
+  .v7 h1 { font-size:2.4rem; color:#4a3e28; font-weight:normal; line-height:1.15; margin:6px 0 4px; }
+  .v7 .handwritten { font-family:'Segoe Script','Bradley Hand',cursive; font-size:1.25rem; color:#7a5c34; margin-top:2px; letter-spacing:1px; }
+  .v7 .divider { display:flex; align-items:center; justify-content:center; gap:14px; margin:20px 0; }
+  .v7 .divider .line { height:1px; width:70px; background:linear-gradient(90deg, transparent, #8a7348, transparent); }
+  .v7 .divider .leaf { color:#6b7c4a; font-size:1.1rem; }
+  .v7 p { color:#4a3e28; font-size:1.05rem; line-height:1.85; }
+  .v7 .note { margin-top:22px; font-family:'Segoe Script','Bradley Hand',cursive; font-size:1.1rem; color:#7a5c34; }
+  .v7 .specimen-label { margin-top:26px; padding-top:14px; border-top:1px dotted #a8905e; font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:#8a7348; }
+
+  /* ============ 8. ЕГИПЕТСКИЙ ПАПИРУС ============ */
+  .v8 {
+    background: repeating-linear-gradient(0deg, rgba(160,120,60,0.04) 0 2px, transparent 2px 4px), repeating-linear-gradient(90deg, rgba(160,120,60,0.03) 0 2px, transparent 2px 5px), linear-gradient(160deg, #f2dfb8, #e6cd9a 55%, #d9bb80);
+    padding: 60px 45px 50px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.65), inset 0 0 90px rgba(140,100,40,0.22);
+    animation: reveal 1.4s cubic-bezier(0.2,0.8,0.2,1);
+    clip-path: polygon(0% 2%, 4% 0%, 12% 2%, 22% 0%, 35% 2%, 48% 0%, 60% 2%, 72% 0%, 84% 2%, 94% 0%, 100% 3%, 100% 97%, 96% 100%, 86% 98%, 74% 100%, 62% 98%, 50% 100%, 38% 98%, 26% 100%, 14% 98%, 4% 100%, 0% 96%);
+  }
+  .v8 .hiero-strip { display:flex; justify-content:center; gap:14px; font-size:1.3rem; color:#8a5a24; opacity:0.85; letter-spacing:2px; margin:4px 0; user-select:none; }
+  .v8 .hiero-strip span:nth-child(odd) { transform:translateY(-2px); }
+  .v8 .sun-disc { width:64px; height:64px; margin:14px auto 6px; border-radius:50%; background:radial-gradient(circle at 40% 35%, #f6d27a, #d99a3c 65%, #a86b1e); box-shadow:0 0 24px rgba(240,200,110,0.7), inset -4px -4px 10px rgba(120,70,10,0.4); position:relative; }
+  .v8 .sun-disc::after { content:'☥'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#5a3a10; font-size:1.6rem; opacity:0.55; }
+  .v8 h1 { font-size:2.3rem; color:#5a3a10; font-weight:normal; line-height:1.15; margin:12px 0 4px; letter-spacing:1px; text-shadow:1px 1px 0 rgba(255,240,200,0.6); }
+  .v8 .subtitle { font-size:0.75rem; letter-spacing:6px; text-transform:uppercase; color:#8a5a24; margin-bottom:18px; }
+  .v8 .divider { display:flex; align-items:center; justify-content:center; gap:12px; margin:18px 0; color:#a86b1e; }
+  .v8 .divider::before, .v8 .divider::after { content:''; height:1px; width:60px; background:linear-gradient(90deg, transparent, #a86b1e, transparent); }
+  .v8 .divider .ankh { font-size:1.2rem; }
+  .v8 p { color:#4a3212; font-size:1.06rem; line-height:1.85; }
+  .v8 .seal { margin-top:24px; font-size:1.2rem; letter-spacing:10px; color:#8a5a24; }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="content">
+<!-- ================= 2. ВИНТАЖНАЯ ГАЗЕТА ================= -->
+<div class="card v2">
+  <div class="stamp">С ДНЁМ<br>РОЖДЕНИЯ</div>
+  <div class="masthead">
+    <small>Поздравительный вестник</small>
+    <h1>С Днём Рождения!</h1>
+    <div class="sub">Специальный выпуск · Только для именинницы</div>
+  </div>
+  <div class="body-text">
+    <p class="dropcap">Дорогая именинница! Поздравляю тебя с днём рождения — с днём, когда мир стал чуточку светлее, потому что в нём появилась ты.</p>
+    <p>Желаю тебе крепкого здоровья, верных друзей и попутного ветра во всех делах. Пусть новости будут только добрыми, а каждый новый день твоей жизни — праздничным.</p>
+    <p>Пусть мечты сбываются без задержек и опечаток!</p>
+  </div>
+  <div class="signature">— Поздравляю, Настя</div>
+</div>
 
-            <!-- ========== ШАПКА ========== -->
-            <div class="header">
-                <div class="ornament">✦ ✦ ✦</div>
-                <div class="pre-title">С глубоким уважением и теплом приглашаем</div>
-                <h1>5 <span>6</span></h1>
-                <div class="sub-title">-й День Рождения</div>
-                <div class="age-badge">12 июля 2026 · Семейный круг</div>
-            </div>
+<!-- ================= 4. АР-НУВО ================= -->
+<div class="card v4">
+  <div class="frame-outer"></div>
+  <div class="frame-inner"></div>
+  <div class="corner tl"><svg viewBox="0 0 70 70" fill="none" stroke="#b8964f" stroke-width="1.5"><path d="M5 5 Q35 5 35 25 Q35 40 20 40 Q8 40 8 30 Q8 22 18 22"/><path d="M5 5 L5 30 M5 5 L30 5"/><circle cx="18" cy="22" r="2" fill="#b8964f"/></svg></div>
+  <div class="corner tr"><svg viewBox="0 0 70 70" fill="none" stroke="#b8964f" stroke-width="1.5"><path d="M5 5 Q35 5 35 25 Q35 40 20 40 Q8 40 8 30 Q8 22 18 22"/><path d="M5 5 L5 30 M5 5 L30 5"/><circle cx="18" cy="22" r="2" fill="#b8964f"/></svg></div>
+  <div class="corner bl"><svg viewBox="0 0 70 70" fill="none" stroke="#b8964f" stroke-width="1.5"><path d="M5 5 Q35 5 35 25 Q35 40 20 40 Q8 40 8 30 Q8 22 18 22"/><path d="M5 5 L5 30 M5 5 L30 5"/><circle cx="18" cy="22" r="2" fill="#b8964f"/></svg></div>
+  <div class="corner br"><svg viewBox="0 0 70 70" fill="none" stroke="#b8964f" stroke-width="1.5"><path d="M5 5 Q35 5 35 25 Q35 40 20 40 Q8 40 8 30 Q8 22 18 22"/><path d="M5 5 L5 30 M5 5 L30 5"/><circle cx="18" cy="22" r="2" fill="#b8964f"/></svg></div>
+  <div class="content">
+    <div class="flourish">❦ ❦ ❦</div>
+    <div class="title-small">Поздравление</div>
+    <h1>С днём<br>рождения</h1>
+    <div class="divider"><span class="diamond"></span></div>
+    <p>
+    Пусть этот год будет соткан из тёплых встреч,<br>
+    тихих радостей и громких побед.<br>
+    Желаю тебе здоровья, вдохновения<br>и людей, рядом с которыми легко.</p>
+    <div class="leaf-ornament">❧ ❧ ❧</div>
+    <div class="signature">С любовью</div>
+  </div>
+</div>
 
-            <!-- ========== ПРИВЕТСТВИЕ ========== -->
-            <div class="greeting-block relative">
-                <div class="salute">«Семья — это главное в жизни»</div>
-                <p>
-                    Дорогие наши родные, близкие и друзья!<br />
-                    С огромной радостью приглашаем вас разделить с нами этот особенный день —
-                    <strong>56-й День Рождения</strong> нашего любимого <strong>Николая Николаевича</strong>.
-                    <br /><br />
-                    12 июля мы собираемся в нашем родном доме в <strong>Старом Ильдеряково</strong>,
-                    чтобы в тёплом семейном кругу отметить этот светлый праздник.
-                    Будет по-домашнему уютно, душевно и вкусно — как мы любим.
-                </p>
-                <div class="signature">— С любовью, ваша семья</div>
-            </div>
+<!-- ================= 6. БАРОККО ================= -->
+<div class="card v6">
+  <div class="inner-frame"></div>
+  <div class="baroque-corner tl"><svg viewBox="0 0 90 90" fill="none" stroke="#d4af37" stroke-width="1.4"><path d="M8 8 Q8 40 25 45 Q12 50 12 30"/><path d="M8 8 Q40 8 45 25 Q50 12 30 12"/><path d="M8 8 C8 30, 30 8, 8 8" opacity="0.5"/><circle cx="12" cy="30" r="1.6" fill="#d4af37"/><circle cx="30" cy="12" r="1.6" fill="#d4af37"/><path d="M8 8 L20 20" stroke-width="0.8"/></svg></div>
+  <div class="baroque-corner tr"><svg viewBox="0 0 90 90" fill="none" stroke="#d4af37" stroke-width="1.4"><path d="M8 8 Q8 40 25 45 Q12 50 12 30"/><path d="M8 8 Q40 8 45 25 Q50 12 30 12"/><path d="M8 8 C8 30, 30 8, 8 8" opacity="0.5"/><circle cx="12" cy="30" r="1.6" fill="#d4af37"/><circle cx="30" cy="12" r="1.6" fill="#d4af37"/><path d="M8 8 L20 20" stroke-width="0.8"/></svg></div>
+  <div class="baroque-corner bl"><svg viewBox="0 0 90 90" fill="none" stroke="#d4af37" stroke-width="1.4"><path d="M8 8 Q8 40 25 45 Q12 50 12 30"/><path d="M8 8 Q40 8 45 25 Q50 12 30 12"/><path d="M8 8 C8 30, 30 8, 8 8" opacity="0.5"/><circle cx="12" cy="30" r="1.6" fill="#d4af37"/><circle cx="30" cy="12" r="1.6" fill="#d4af37"/><path d="M8 8 L20 20" stroke-width="0.8"/></svg></div>
+  <div class="baroque-corner br"><svg viewBox="0 0 90 90" fill="none" stroke="#d4af37" stroke-width="1.4"><path d="M8 8 Q8 40 25 45 Q12 50 12 30"/><path d="M8 8 Q40 8 45 25 Q50 12 30 12"/><path d="M8 8 C8 30, 30 8, 8 8" opacity="0.5"/><circle cx="12" cy="30" r="1.6" fill="#d4af37"/><circle cx="30" cy="12" r="1.6" fill="#d4af37"/><path d="M8 8 L20 20" stroke-width="0.8"/></svg></div>
+  <div class="content">
+    <span class="crown">👑</span>
+    <div class="overline">Поздравляю</div>
+    <h1>С днём<br><span class="accent">рождения</span></h1>
+    <div class="ornament-line"><span class="line"></span><span class="symbol">❦</span><span class="line"></span></div>
+    <p>
+    Пусть каждый твой день будет достоин<br>
+    королевского стола,<br>
+    а жизнь — бала, на котором<br>
+    звучит только твоя музыка.</p>
+    <div class="ornament-line"><span class="line"></span><span class="symbol">✦</span><span class="line"></span></div>
+  </div>
+  <div class="wax-seal">✓</div>
+</div>
 
-            <div class="divider"></div>
+<!-- ================= 7. ГЕРБАРИЙ ================= -->
+<div class="card v7">
+  <div class="frame"></div>
+  <div class="branch tl"><svg viewBox="0 0 110 110" fill="none" stroke="#6b7c4a" stroke-width="1.3"><path d="M10 10 Q40 20 60 45"/><path d="M25 18 q8 -10 16 -6 q-2 10 -16 6z" fill="#6b7c4a" fill-opacity="0.25"/><path d="M40 28 q10 -8 16 -2 q-4 10 -16 2z" fill="#6b7c4a" fill-opacity="0.2"/><path d="M20 30 q-10 6 -12 14 q10 2 12 -14z" fill="#6b7c4a" fill-opacity="0.18"/><circle cx="55" cy="42" r="2" fill="#a86b3c"/></svg></div>
+  <div class="branch tr"><svg viewBox="0 0 110 110" fill="none" stroke="#6b7c4a" stroke-width="1.3"><path d="M10 10 Q40 20 60 45"/><path d="M25 18 q8 -10 16 -6 q-2 10 -16 6z" fill="#6b7c4a" fill-opacity="0.25"/><path d="M40 28 q10 -8 16 -2 q-4 10 -16 2z" fill="#6b7c4a" fill-opacity="0.2"/><path d="M20 30 q-10 6 -12 14 q10 2 12 -14z" fill="#6b7c4a" fill-opacity="0.18"/><circle cx="55" cy="42" r="2" fill="#a86b3c"/></svg></div>
+  <div class="branch bl"><svg viewBox="0 0 110 110" fill="none" stroke="#6b7c4a" stroke-width="1.3"><path d="M10 10 Q40 20 60 45"/><path d="M25 18 q8 -10 16 -6 q-2 10 -16 6z" fill="#6b7c4a" fill-opacity="0.25"/><path d="M40 28 q10 -8 16 -2 q-4 10 -16 2z" fill="#6b7c4a" fill-opacity="0.2"/><path d="M20 30 q-10 6 -12 14 q10 2 12 -14z" fill="#6b7c4a" fill-opacity="0.18"/><circle cx="55" cy="42" r="2" fill="#a86b3c"/></svg></div>
+  <div class="branch br"><svg viewBox="0 0 110 110" fill="none" stroke="#6b7c4a" stroke-width="1.3"><path d="M10 10 Q40 20 60 45"/><path d="M25 18 q8 -10 16 -6 q-2 10 -16 6z" fill="#6b7c4a" fill-opacity="0.25"/><path d="M40 28 q10 -8 16 -2 q-4 10 -16 2z" fill="#6b7c4a" fill-opacity="0.2"/><path d="M20 30 q-10 6 -12 14 q10 2 12 -14z" fill="#6b7c4a" fill-opacity="0.18"/><circle cx="55" cy="42" r="2" fill="#a86b3c"/></svg></div>
+  <div class="content">
+    <div class="latin">Dies Natalis</div>
+    <h1>С днём рождения</h1>
+    <div class="divider"><span class="line"></span><span class="leaf">❧</span><span class="line"></span></div>
+    <p>Пусть жизнь твоя цветёт, как этот гербарий —<br>
+    бережно собранная, полная тихих чудес<br>
+    и редких, драгоценных мгновений.</p>
+    <div class="note">Желаю тебе здоровья, тепла и вдохновения</div>
+    <div class="specimen-label">С · днем · Рождения</div>
+  </div>
+</div>
 
-            <!-- ========== ИМЯ + ВОЗРАСТ ========== -->
-            <div class="name-block relative">
-                <div class="full-name">Николай <span>Николаевич</span></div>
-                <div class="age-line">
-                    <strong>56</strong> &nbsp;лет &nbsp;·&nbsp; <span class="note">«Возраст мудрости и душевной силы»</span>
-                </div>
-            </div>
-
-            <!-- ========== ДЕТАЛИ ========== -->
-            <div class="details-grid">
-                <div class="detail-card">
-                    <div class="label">Дата</div>
-                    <div class="value gold">12 июля 2026</div>
-                </div>
-                <div class="detail-card">
-                    <div class="label">Сбор гостей</div>
-                    <div class="value">19:00</div>
-                </div>
-                <div class="detail-card">
-                    <div class="label">Место</div>
-                    <div class="value">Родной дом</div>
-                </div>
-                <div class="detail-card">
-                    <div class="label">Формат</div>
-                    <div class="value">Семейный уют</div>
-                </div>
-            </div>
-
-            <div class="divider-thick"></div>
-
-            <!-- ========== ПРОГРАММА ========== -->
-            <div class="program-block relative">
-                <h3>Программа <span>праздника</span></h3>
-
-                <div class="program-item">
-                    <span class="time">19:00</span>
-                    <span class="desc"><strong>Встреча гостей</strong> · Тёплый приём</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">19:30</span>
-                    <span class="desc"><strong>Семейный ужин</strong> · Блюда домашней кухни</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">20:00</span>
-                    <span class="desc"><strong>Поздравления</strong> · Тёплые слова и душевные пожелания</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">20:30</span>
-                    <span class="desc"><strong>Чаепитие</strong> · Домашний торт, варенье, пироги</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">21:00</span>
-                    <span class="desc"><strong>Фотографии</strong> · Семейные кадры на память</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">21:30</span>
-                    <span class="desc"><strong>Завершение</strong> · Тёплые проводы</span>
-                </div>
-            </div>
-
-            <!-- ========== МЕНЮ ========== -->
-            <div class="menu-block relative">
-                <h3>Домашнее <span>меню</span></h3>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <span class="dish"><strong>Различные салаты</strong> · </span>
-                        <span class="note">♡</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <span class="dish"><strong>Картофель</strong> · варёный, печёный</span>
-                        <span class="note">♡</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="dish"><strong>Курица</strong> · запечённая в духовке</span>
-                        <span class="note">♡</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <span class="dish"><strong>Торт </strong> · </span>
-                        <span class="note">♡</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <span class="dish"><strong>Компот</strong> · ягодный</span>
-                        <span class="note">♡</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========== ЛОКАЦИЯ ========== -->
-            <div class="location-block relative">
-                <h3>🏡 <span>Наш дом</span></h3>
-                <div class="address">
-                    <strong>Деревня Старое Ильдеряково</strong>
-                </div>
-                <div class="address-sub">
-                    Уютный семейный дом 
-                </div>
-            </div>
-
-            <!-- ========== ФОТОЗОНА ========== -->
-            <div class="atmosphere-block relative">
-                <h3>📸 Фотозона <span>и настроение</span></h3>
-                <p>
-                    Деревенская природа. Огород. Площадка для детей. Домик. Сделаем отличные семейные
-                    снимки на долгую память!
-                </p>
-                <div class="atmosphere-icons">
-                    <span>🌻</span>
-                    <span>🪑</span>
-                    <span>☕</span>
-                    <span>🎵</span>
-                    <span>📷</span>
-                    <span>🌿</span>
-                    <span>✨</span>
-                </div>
-            </div>
-
-            <!-- ========== ПОДАРКИ ========== -->
-            <div class="gift-block relative">
-                <h3>🎁 <span>О подарках</span></h3>
-                <p>
-                    Самое главное для нас — ваше внимание, тёплые слова и хорошее настроение.
-                    Если вы хотите порадовать Николая Николаевича, мы будем рады любым
-                     сюрпризам.
-                </p>
-                <div class="gift-hint">
-                    ✦ Главное — вы рядом ✦
-                </div>
-            </div>
-
-            <!-- ========== ЦИТАТА ========== -->
-            <div class="wishes-block relative">
-                <div class="quote">
-                    «Счастье — это когда есть с кем<br />
-                    разделить <span>тёплый летний день</span>»
-                </div>
-                <div class="family-sign">
-                    ✦ Семья Николая Николаевича ✦
-                </div>
-            </div>
-
-            <!-- ========== ФУТЕР ========== -->
-            <div class="footer">
-                <div class="copy">
-                    День Рождения · 12 июля 2026 · Старое Ильдеряково
-                </div>
-            </div>
-
-        </div>
-    </div>
+<!-- ================= 8. ЕГИПЕТСКИЙ ПАПИРУС ================= -->
+<div class="card v8">
+  <div class="hiero-strip"><span>𓂀</span><span>𓆣</span><span>𓋹</span><span>𓇳</span><span>𓂀</span><span>𓆣</span><span>𓋹</span></div>
+  <div class="sun-disc"></div>
+  <h1>С днём рождения</h1>
+  <div class="divider">С праздником<span class="ankh">☥</span></div>
+  <p>Как солнце встаёт над Нилом,<br>
+  пусть каждый твой день начинается<br>
+  с тепла, света и щедрых даров судьбы.<br>
+  Желаю тебе здоровья, мудрости и долгих лет!</p>
+  <div class="divider"><span class="ankh">☥</span></div>
+  <div class="seal">𓂀 𓆣 𓋹 𓇳 𓂀</div>
+  <div class="hiero-strip"><span>𓋹</span><span>𓆣</span><span>𓂀</span><span>𓇳</span><span>𓋹</span><span>𓆣</span><span>𓂀</span></div>
+</div>
 
 </body>
 </html>
